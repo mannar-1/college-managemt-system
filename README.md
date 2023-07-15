@@ -70,5 +70,5 @@ npm start
 ## Video of project
 
 below is a video clip which shows working
-https://github.com/mannar-1/college-managemt-system/assets/76727312/a47aa05b-ab0a-4b9b-82b6-b2fa3c03a679
+https://github.com/mannar-1/college-managemt-system/assets/76727312/0cd2353c-f3a1-4dac-8752-1f85d166cf43
 
