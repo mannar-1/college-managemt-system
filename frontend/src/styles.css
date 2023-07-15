@@ -47,3 +47,20 @@
 .gdele:hover {
   opacity: 0.85;
 }
+.search-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.search-button {
+  background-color: black;
+  color: white;
+  width: 200px;
+  height: 25px;
+  border-radius: 10px;
+  transition: opacity 0.3s;
+}
+
+.search-button:hover {
+  opacity: 0.7;
+}
