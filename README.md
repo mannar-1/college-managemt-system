@@ -70,6 +70,6 @@ npm start
 ## Video of project
 
 below is the link to the video
-https://drive.google.com/drive/u/4/my-drive
+https://drive.google.com/file/d/1TG_BtZbmbgyLC6VqjA-ZuLMmEOaqP9Fs/view?usp=sharing
 
 
