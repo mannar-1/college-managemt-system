@@ -32,12 +32,8 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>Student List</h1>
-      <div>
-        <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
-        <button onClick={handleSearch}>Search</button>
-      </div>
+    <div style={{background:'white'}}>
+      <center><h1>Student List</h1></center>
       <StudentList searchResult={searchResult} />
     </div>
   );
