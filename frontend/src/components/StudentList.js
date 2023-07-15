@@ -2,12 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import '../styles.css'; // Import the CSS file
 import img from '../assets/pic.jpg';
+
 const StudentList = () => {
   const [students, setStudents] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResult, setSearchResult] = useState(null);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [isHovered, setIsHovered] = useState(null);
+
   const groupStudentsByCollege = (data) => {
     const colleges = {};
     if (searchResult) {
@@ -20,10 +22,8 @@ const StudentList = () => {
 
         colleges[college].push(student);
       });
-
     }
     return colleges;
-
   };
 
   const handleSearchQueryChange = (event) => {
@@ -47,15 +47,16 @@ const StudentList = () => {
       setSearchResult(res);
     }
   };
+
   const searchByBranch = async () => {
     const response = await fetch(`/college/${searchQuery}`);
     if (response.ok) {
-
       const data = await response.json();
       const res = groupStudentsByCollege(data);
       setSearchResult(res);
     }
   };
+
   const searchByCollege = async () => {
     const response = await fetch(`/college/${searchQuery}`);
     if (response.ok) {
@@ -73,36 +74,72 @@ const StudentList = () => {
     setSelectedStudent(null);
   };
 
+  const displayFullData = async () => {
+    const response = await fetch(`/college/`);
+    if (response.ok) {
+      const data = await response.json();
+      setSearchResult(groupStudentsByCollege(data));
+    }
+  };
+
   return (
     <div>
       <div className="container">
-        <center><input type="text" style={{
-          width: '700px',
-          height: '50px',
-          borderRadius: '10px',
-          textAlign: 'initial',
-          fontSize: '20px',
-
-        }} value={searchQuery} onChange={handleSearchQueryChange} placeholder='Search here' pattern='10px' /></center>
+        <center>
+          <input
+            type="text"
+            style={{
+              width: '700px',
+              height: '50px',
+              borderRadius: '10px',
+              textAlign: 'initial',
+              fontSize: '20px',
+            }}
+            value={searchQuery}
+            onChange={handleSearchQueryChange}
+            placeholder="Search here"
+            pattern="10px"
+          />
+        </center>
         <p></p>
-        <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-          <button 
-             className="search-button"
-          onClick={searchByRollNo} >Search by Roll No</button>
+        <div className="search-buttons">
+        <button
+            className="search-button"
+            onClick={displayFullData}
+          >
+            Display Full Data
+          </button>
           <button
             className="search-button"
-          onClick={searchByName}>Search by Name</button>
-          <button 
+            onClick={searchByRollNo}
+          >
+            Search by Roll No
+          </button>
+          <button
             className="search-button"
-          onClick={searchByBranch}>Search by Branch</button>
-          <button 
-           
-           className="search-button"
-           onClick={searchByCollege}>Search by College</button>
-          <button 
+            onClick={searchByName}
+          >
+            Search by Name
+          </button>
+          <button
             className="search-button"
-          onClick={() => setSearchResult(null)}>Clear Search</button>
-
+            onClick={searchByBranch}
+          >
+            Search by Branch
+          </button>
+          <button
+            className="search-button"
+            onClick={searchByCollege}
+          >
+            Search by College
+          </button>
+          <button
+            className="search-button"
+            onClick={() => setSearchResult(null)}
+          >
+            Clear Search
+          </button>
+         
         </div>
         <p></p>
         <p></p>
