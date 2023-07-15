@@ -1,19 +1,46 @@
-// import React from 'react';
-// import StudentList from './components/StudentList';
-
-// const App = () => {
-//   return (
-//     <div>
-//       <h1>Student List</h1>
-//       <StudentList />
-//     </div>
-//   );
-// };
-
-// export default App;
 import React, { useState } from 'react';
 import StudentList from './components/StudentList';
+const Navbar = () => {
+  const handleLinkClick = () => {
+    window.open('https://github.com/mannar-1/college-managemt-system', '_blank');
+  };
 
+  return (
+    <nav
+      style={{
+        backgroundColor: 'black',
+        color: 'white',
+        display: 'flex',
+        justifyContent: 'space-between',
+        padding: '10px',
+        alignItems: 'center',
+      }}
+    >
+      <div>
+        <h2>CampusExplorer</h2>
+      </div>
+      <div
+        style={{
+          fontSize: '12px',
+          cursor: 'pointer',
+        }}
+        onClick={handleLinkClick}
+      >
+        <p
+          style={{
+            margin: 0,
+            transition: 'color 0.5s',
+            color: 'white',
+          }}
+          onMouseEnter={(e) => (e.target.style.color = 'purple')}
+          onMouseLeave={(e) => (e.target.style.color = 'white')}
+        >
+          Dev-Love-Ped by Fruit Programmers
+        </p>
+      </div>
+    </nav>
+  );
+};
 const App = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResult, setSearchResult] = useState(null);
@@ -33,7 +60,8 @@ const App = () => {
 
   return (
     <div style={{background:'white'}}>
-      <center><h1>Student List</h1></center>
+      <Navbar/>
+      <p></p>
       <StudentList searchResult={searchResult} />
     </div>
   );
