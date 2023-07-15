@@ -238,8 +238,9 @@ const StudentList = () => {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gridGap: '10px', }}>
                 {student1.map((student) => (
                   <div
+                  className='gdele'
                     key={student._id}
-                    style={{transition: 'background-color 0.3s',borderRadius: '20px', backgroundColor: 'black', paddingLeft: '50px', paddingTop: '5px', paddingBottom: '5px', justifyItems: 'start', marginBottom: '10px', cursor: 'pointer' }}
+                    
                     
                   >
                     <h3 style={{ color: 'white' }}>{student.name}</h3>
