@@ -239,8 +239,8 @@ const StudentList = () => {
                 {student1.map((student) => (
                   <div
                     key={student._id}
-                    style={{ borderRadius: '20px', backgroundColor: 'black', paddingLeft: '50px', paddingTop: '5px', paddingBottom: '5px', justifyItems: 'start', marginBottom: '10px', cursor: 'pointer' }}
-                    onFocus={() => openPopup(student)}
+                    style={{transition: 'background-color 0.3s',borderRadius: '20px', backgroundColor: 'black', paddingLeft: '50px', paddingTop: '5px', paddingBottom: '5px', justifyItems: 'start', marginBottom: '10px', cursor: 'pointer' }}
+                    
                   >
                     <h3 style={{ color: 'white' }}>{student.name}</h3>
                     <p style={{ color: 'white' }} onMouseEnter={() => setIsHovered(student._id)}
