@@ -53,18 +53,50 @@ app.get('/college', async (req, res) => {
   }
 });
 
-app.get('/college/:query', async (req, res) => {
+app.get('/college1/:query', async (req, res) => {
   const query = req.params.query;
 
   try {
-    const students = await student.find({ $or: [{ name: query }, { rollno: query },{branch:query},{collegeId:query}] });
+    const students = await student.find({ rollno: query });
     res.json(students);
   } catch (error) {
     console.error('Error fetching students:', error);
     res.status(500).json({ error: 'An error occurred while fetching students' });
   }
 });
+app.get('/college2/:query', async (req, res) => {
+  const query = req.params.query;
 
+  try {
+    const students = await student.find({ name: query });
+    res.json(students);
+  } catch (error) {
+    console.error('Error fetching students:', error);
+    res.status(500).json({ error: 'An error occurred while fetching students' });
+  }
+});
+app.get('/college3/:query', async (req, res) => {
+  const query = req.params.query;
+
+  try {
+    const students = await student.find({branch:query});
+    res.json(students);
+  } catch (error) {
+    console.error('Error fetching students:', error);
+    res.status(500).json({ error: 'An error occurred while fetching students' });
+  }
+});
+app.get('/college4/:query', async (req, res) => {
+  const query = req.params.query;
+
+  try {
+    const students = await student.find({collegeId:query});
+    res.json(students);
+  } catch (error) {
+    console.error('Error fetching students:', error);
+    res.status(500).json({ error: 'An error occurred while fetching students' });
+  }
+});
 
 mongoose
   .connect(MONGODB_URI)

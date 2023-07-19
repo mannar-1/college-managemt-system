@@ -9,7 +9,7 @@ const StudentList = () => {
   const [searchResult, setSearchResult] = useState(null);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [isHovered, setIsHovered] = useState(null);
-
+ 
   const groupStudentsByCollege = (data) => {
     const colleges = {};
     if (searchResult) {
@@ -31,36 +31,48 @@ const StudentList = () => {
   };
 
   const searchByRollNo = async () => {
-    const response = await fetch(`/college/${searchQuery}`);
+    const response = await fetch(`/college1/${searchQuery}`);
     if (response.ok) {
       const data = await response.json();
+      if(data.length==0){
+        alert("no such data found");
+      }
       const res = groupStudentsByCollege(data);
       setSearchResult(res);
     }
   };
 
   const searchByName = async () => {
-    const response = await fetch(`/college/${searchQuery}`);
+    const response = await fetch(`/college2/${searchQuery}`);
     if (response.ok) {
       const data = await response.json();
+      if(data.length==0){
+        alert("no such data found");
+      }
       const res = groupStudentsByCollege(data);
       setSearchResult(res);
     }
   };
 
   const searchByBranch = async () => {
-    const response = await fetch(`/college/${searchQuery}`);
+    const response = await fetch(`/college3/${searchQuery}`);
     if (response.ok) {
       const data = await response.json();
+      if(data.length==0){
+        alert("no such data found");
+      }
       const res = groupStudentsByCollege(data);
       setSearchResult(res);
     }
   };
 
   const searchByCollege = async () => {
-    const response = await fetch(`/college/${searchQuery}`);
+    const response = await fetch(`/college4/${searchQuery}`);
     if (response.ok) {
       const data = await response.json();
+      if(data.length==0){
+        alert("no such data found");
+      }
       const res = groupStudentsByCollege(data);
       setSearchResult(res);
     }
